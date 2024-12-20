@@ -46,7 +46,7 @@ namespace GenericAPI.Controllers
             return CreatedAtAction(nameof(GetById), new { id = createdEmpRepsonse.Id }, createdEmpRepsonse);
         }
 
-        [HttpPut("Id")]
+        [HttpPut("{Id}")]
         public async Task<IActionResult> Put(int Id, [FromBody] EmployeeVM employeeVM)
         {
             var empEntity = await _empRepository.GetByIDAsync(Id);
@@ -64,7 +64,7 @@ namespace GenericAPI.Controllers
             return NoContent();
         }
 
-        [HttpDelete("Id")]
+        [HttpDelete("{Id}")]
         public async Task<IActionResult> Delete(int Id)
         {
             var empEntity = await _empRepository.GetByIDAsync(Id);
